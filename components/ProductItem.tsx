@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
-export function ProductItem({ product }: any) {
+export function ProductItem({ product, key }: any) {
     return(
-        <li key={`${product.id.toString()}-${product.name[0]}`}>
+        <li key={key}>
             <div className="flex flex-col h-120 w-150 p-4 shadow-sm border-2 cursor-pointer hover:bg-gray-100">
                 <h1>{product.name}</h1>
                 <Image src={product.cover} alt="product-image" width="100%" height="240" objectFit="contain" />

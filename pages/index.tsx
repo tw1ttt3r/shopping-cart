@@ -25,7 +25,7 @@ const Home: NextPage = ({ products, fetching }: any) => {
         <title>Home</title>
       </Head>
       { state.loading
-        ? <Image src="/loading.gif" width="100%" height="100%" />
+        ? <Image src="/loading.gif" width="100%" height="100%" alt="loader"/>
         : <div className="px-5 my-5 h-screen w-screen">
           <ProductList products={products} />
         </div>
