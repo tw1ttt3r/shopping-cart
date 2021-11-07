@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ProductItemProps } from '../types/ProductItemProps';
+import { ProductItemProps } from '@/types/ProductItemProps';
 
 export function ProductItem({ product, key }: ProductItemProps) {
     return(

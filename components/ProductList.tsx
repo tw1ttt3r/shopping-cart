@@ -1,5 +1,5 @@
-import { Product } from "../types/Product";
-import { ProductDetailProps } from "../types/ProductDetailProps";
+import { Product } from "@/types/Product";
+import { ProductDetailProps } from "@/types/ProductDetailProps";
 import { ProductItem } from "./ProductItem";
 
 export function ProductList({ products }: ProductDetailProps) {

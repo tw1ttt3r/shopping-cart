@@ -1,15 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useContext, useState } from 'react'
-import { ProductList } from '../components/ProductList'
-import { ShoppingCartContext } from '../lib/shoppingCartContext'
-import { HomeState } from '../types/HomeState'
+import { useContext } from 'react'
+import { ProductList } from '@/components/ProductList'
+import { ShoppingCartContext } from '@/lib/shoppingCartContext'
 
 const Home: NextPage = () => {
-  const [state, setState] = useState<HomeState>({
-    loading: true
-  });
-
   const [ context, setContext ] = useContext(ShoppingCartContext as any);
 
   return (

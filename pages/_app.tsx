@@ -1,8 +1,8 @@
-import Layout from '../components/Layout'
-import 'tailwindcss/tailwind.css'
-import { ShoppingCartContext } from '../lib/shoppingCartContext';
 import { useState } from 'react';
-import { Products } from '../types/Products';
+import 'tailwindcss/tailwind.css'
+import Layout from '@/components/Layout'
+import { ShoppingCartContext } from '@/lib/shoppingCartContext';
+import { Products } from '@/types/Products';
 
 function MyApp({ Component, pageProps, products }: any) {
 
