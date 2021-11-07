@@ -1,10 +1,10 @@
-import { useRouter } from 'next/dist/client/router';
+import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
-import { ShoppingCartContext } from '../lib/shoppingCartContext';
-import { Product } from '../types/Product';
-import { ProductDetailState } from '../types/ProductDetailState';
+import { useRouter } from 'next/dist/client/router';
+import { ShoppingCartContext } from '@/lib/shoppingCartContext';
+import { Product } from '@/types/Product';
+import { ProductDetailState } from '@/types/ProductDetailState';
 
 
 function ProductDetail() {

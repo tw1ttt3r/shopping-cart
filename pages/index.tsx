@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useContext, useState } from 'react'
-import { ProductList } from '../components/ProductList'
-import { ShoppingCartContext } from '../lib/shoppingCartContext'
-import { HomeState } from '../types/HomeState'
+import { ProductList } from '@/components/ProductList'
+import { ShoppingCartContext } from '@/lib/shoppingCartContext'
+import { HomeState } from '@/types/HomeState'
 
 const Home: NextPage = () => {
   const [state, setState] = useState<HomeState>({
