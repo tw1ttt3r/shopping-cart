@@ -1,11 +1,11 @@
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}'],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       spacing: {
-        120: '480px',
-        150: '600px'
+        '120': '480px',
+        '150': '600px'
       }
     },
   },
