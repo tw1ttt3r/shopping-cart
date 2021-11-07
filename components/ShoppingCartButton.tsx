@@ -18,7 +18,7 @@ function ShoppingCartButton() {
                 noShow: router.pathname === '/cart' ? true : false
             })
         }
-    }, [router])
+    }, [router, state])
 
     return (
         <Link href="/cart" passHref>

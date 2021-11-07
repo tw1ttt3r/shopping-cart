@@ -27,7 +27,7 @@ function ProductDetail() {
                 product
             });
         }
-    }, [query, context])
+    }, [query, context, state])
 
     return (
         <>
