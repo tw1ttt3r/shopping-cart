@@ -21,7 +21,7 @@ function ShoppingCartButton() {
     }, [router])
 
     return (
-        <Link href="/cart">
+        <Link href="/cart" passHref>
             <div className={cn('cursor-pointer fixed flex justify-center items-center bottom-0 right-0 z-50 w-20 h-20 mb-10 mr-10 rounded-full shadow-sm bg-gray-400', {'hidden': state.noShow})}>
                 <CartIcon classnames="w-13 h-13"></CartIcon>
             </div>
