@@ -17,7 +17,7 @@ function ProductDetail() {
         }
     });
     const { query } = useRouter();
-    const [ context, setContext ] = useContext(ShoppingCartContext);
+    const [ context, setContext ] = useContext(ShoppingCartContext as any);
 
     useEffect( () => {
         if (!!query['product-detail'] && !!context.products) {
@@ -38,7 +38,7 @@ function ProductDetail() {
                 <h1>{state.product?.name}</h1>
                 <div className="flex justify-between">
                     <div className="w-1/2">
-                        <Image src={state.product.cover} alt="product-image" className="object-fill" width="100%" height="100%" objectFit="contain" />
+                        <Image src={state.product.cover as any} alt="product-image" className="object-fill" width="100%" height="100%" />
                     </div>
                     <div className="w-1/2">
                         <p className="text-center">

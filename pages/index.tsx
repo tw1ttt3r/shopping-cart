@@ -10,7 +10,7 @@ const Home: NextPage = () => {
     loading: true
   });
 
-  const [ context, setContext ] = useContext(ShoppingCartContext);
+  const [ context, setContext ] = useContext(ShoppingCartContext as any);
 
   return (
     <>
