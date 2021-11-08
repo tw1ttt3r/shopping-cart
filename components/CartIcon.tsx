@@ -1,6 +1,6 @@
-import { CartIconProps } from "@/types/CartIconProps";
+import { IconProps } from "@/types/IconProps";
 
-function CartIcon({ classnames }: CartIconProps) {
+function CartIcon({ classnames }: IconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
