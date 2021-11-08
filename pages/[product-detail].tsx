@@ -5,6 +5,8 @@ import { useRouter } from 'next/dist/client/router';
 import { ShoppingCartContext } from '@/lib/shoppingCartContext';
 import { Product } from '@/types/Product';
 import { ProductDetailState } from '@/types/ProductDetailState';
+import { ItemCart } from '@/types/ItemCart';
+import changeQuantityItemCart from '@/lib/changeQuantityItemCart';
 
 
 function ProductDetail() {
@@ -14,20 +16,28 @@ function ProductDetail() {
             name: '',
             cover: '/loading',
             price: '',
-        }
+        },
+        quantityItem: 0,
     });
     const { query } = useRouter();
     const [ context, setContext ] = useContext(ShoppingCartContext as any);
 
+    const handleAddRemoveItem = (e: React.MouseEvent<HTMLButtonElement>): void => {
+        const action = e.currentTarget.getAttribute("data-action")
+        changeQuantityItemCart(state.product, String(action), context, setContext)
+    }
+
     useEffect( () => {
         if (!!query['product-detail'] && !!context.products) {
             const product = context.products.find( (product: Product) => product.id === Number(query['product-detail']));
+            const itemContext = context.cart.filter((item: ItemCart) => item.id === Number(query['product-detail']));
             setState({
                 ...state,
-                product
+                product,
+                quantityItem: itemContext.length > 0 ? itemContext[0].quantity : 0
             });
         }
-    }, [query, context, state])
+    }, [query, context])
 
     return (
         <>
@@ -44,10 +54,10 @@ function ProductDetail() {
                         <p className="text-center">
                             {new Intl.NumberFormat('es-MX', {style: 'currency', currency: 'MXN'}).format(Number(state.product?.price))}
                         </p>
-                        <h1 className="text-center">Cantidad: 0</h1>
+                        <h1 className="text-center">Cantidad: {state.quantityItem}</h1>
                         <div className="flex justify-center">
-                            <button className="w-8 h-8 text-lg border hover:bg-gray-200">+</button>
-                            <button className="w-8 h-8 text-lg border hover:bg-gray-200">-</button>
+                            <button data-action="add" onClick={handleAddRemoveItem} className="w-8 h-8 text-lg border hover:bg-gray-200">+</button>
+                            <button data-action="remove" onClick={handleAddRemoveItem} className="w-8 h-8 text-lg border hover:bg-gray-200">-</button>
                         </div>
                     </div>
                 </div>
