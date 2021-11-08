@@ -16,7 +16,7 @@ function Cart() {
             {
                 context.cart.length > 0
                     ? <><CartProductList products={context.products} cart={context.cart} />
-                        <div className="flex justify-end w-full fixed bottom-10">
+                        <div className="flex justify-end right-0 fixed bottom-10">
                             <h2 className="mr-10 bg-gray-600 text-white px-6">Total: {new Intl.NumberFormat('es-MX', {style: 'currency', currency: 'MXN'}).format(Number(context.cart.reduce((acc: any, item: any) => acc + item.quantity * context.products.filter( (p: any) => p.id === item.id)[0].price, 0)))} </h2>
                         </div>
                         <EmptyCartButton /></>
