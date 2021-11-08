@@ -1,6 +1,7 @@
 import { ContextInitialApp } from "@/types/ContextInitialApp";
 import { ItemCart } from "@/types/ItemCart";
 import { Product } from "@/types/Product";
+import { setLocalStorageCart } from "./manageLocalStorageCart";
 
 export default function changeQuantityItemCart(product: Product, action: string, context: ContextInitialApp, setContext: any) {
 
@@ -29,4 +30,5 @@ export default function changeQuantityItemCart(product: Product, action: string,
         ...context,
         cart
     })
+    setLocalStorageCart(cart);
 }

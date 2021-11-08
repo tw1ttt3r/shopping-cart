@@ -4,6 +4,7 @@ import cn from 'classnames';
 import { CartItemProps } from "@/types/CartItemProps";
 import { ShoppingCartContext } from "@/lib/shoppingCartContext";
 import changeQuantityItemCart from "@/lib/changeQuantityItemCart";
+import { setLocalStorageCart } from "@/lib/manageLocalStorageCart";
 
 
 function CartItem({ product, itemCart, key }: CartItemProps) {
@@ -16,10 +17,12 @@ function CartItem({ product, itemCart, key }: CartItemProps) {
     }
 
     const deleteItemCart = () => {
+        const cart = context.cart.filter((item: any) => item.id !== product.id); 
         setContext({
             ...context,
-            cart: context.cart.filter((item: any) => item.id !== product.id)
+            cart
         })
+        setLocalStorageCart(cart)
     }
 
     return (
