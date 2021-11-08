@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'tailwindcss/tailwind.css'
 import Layout from '@/components/Layout'
 import { ShoppingCartContext } from '@/lib/shoppingCartContext';
 import { ContextInitialApp } from '@/types/ContextInitialApp';
+import { getLocalStorageCart } from '@/lib/manageLocalStorageCart';
 
-function MyApp({ Component, pageProps, products }: any) {
+function MyApp({ Component, pageProps, products, cartLocalStorage }: any) {
 
   const [context, setContext] = useState<ContextInitialApp>({
-    products: products,
+    products: [],
     cart: []
   });
+
+  useEffect(() => {
+    setContext({
+      ...context,
+      products,
+      cart: cartLocalStorage
+    })
+  }, [products, cartLocalStorage])
 
   return(
     <ShoppingCartContext.Provider value={[context, setContext] as any}>
@@ -26,8 +35,9 @@ MyApp.getInitialProps = async () => {
     method: 'GET'
   }).then( res => res.json())
   .then( data => products = data)
-  return {...{ products}}
-}
 
+  const cartLocalStorage = await getLocalStorageCart()
+  return {...{ products, cartLocalStorage }}
+}
 
 export default MyApp

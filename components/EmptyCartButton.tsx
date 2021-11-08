@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import TrashIcon from "./TrashIcon";
 import { ShoppingCartContext } from "@/lib/shoppingCartContext";
+import { setLocalStorageCart } from "@/lib/manageLocalStorageCart";
 
 function EmptyCartButton() {
 
@@ -11,6 +12,7 @@ function EmptyCartButton() {
             ...context,
             cart: []
         })
+        setLocalStorageCart([])
     }
 
 
